@@ -1,0 +1,96 @@
+<div class="container">
+    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+  
+          <h3 style="text-align:center">
+              Register
+          </h3>
+          
+          <div class="form-row">
+          <div class="form-group">
+                <!-- Username -->
+                <label for="firstname">First Name: <span class="lblError">*</span></label>
+                <div class="controls">
+                  <input type="text" id="username" placeholder="Name" class="form-control" formControlName="first_name">
+                  <p class="lblError" *ngIf="register.get('first_name').hasError('required')
+                              && !register.get('first_name').pristine">
+                      First Name is Required
+                  </p>
+                </div>
+          </div>
+
+          <div class="form-group">
+            <!-- Last name -->
+            <label for="lastname">Last Name: <span class="lblError">*</span></label>
+            <div class="controls">
+              <input type="text" id="lastname" placeholder="Last Name" class="form-control" formControlName="last_name">
+              <p class="lblError" *ngIf="register.get('last_name').hasError('required')
+                          && !register.get('last_name').pristine">
+                  Last Name is Required
+              </p>
+            </div>
+           </div>
+        </div>
+  
+          
+            <div class="col">
+              <div class="form-group">
+                <!-- Mobile Number -->
+                <label for="phone">Mobile No. <span class="lblError">*</span></label>
+                <div class="controls">
+                  <input type="number" id="phone" placeholder="Phone" class="form-control" formControlName="user_phone">
+                  <p class="lblError" *ngIf="register.get('user_phone').hasError('required') && !register.get('user_phone').pristine">
+                      Mobile no. is Required
+                  </p>
+                </div>
+              </div>
+            </div>
+          
+
+          <div class="form-group">
+            <!-- Bag Id -->
+            <label for="bagid">Unique Bag ID: <span class="lblError">*</span></label>
+            <div class="controls">
+              <input type="text" id="bagid" placeholder="Bag Id" class="form-control" formControlName="bag_id">
+              <p class="lblError" *ngIf="register.get('bag_id').hasError('required')
+                          && !register.get('bag_id').pristine">
+                  Bag ID is Required
+              </p>
+            </div>
+          </div>
+  
+          <div class="form-row" formGroupName="password_group">
+              <div class="col">
+                <div class="form-group">
+                  <div class="control-group">
+                    <!-- Password -->
+                    <label for="password">Password: <span class="lblError">*</span></label>
+                    <div class="controls">
+                    <input type="password" id="password" placeholder="Password" class="form-control" formControlName="user_password">
+                    <p class="lblError" *ngIf="register.get('password_group').get('user_password').hasError('required') && !register.get('password_group').get('user_password').pristine">
+                        Password is Required
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <div class="control-group">
+                  <!-- Password (Confirm)-->
+                  <label for="password_confirm">Confirm Password: <span class="lblError">*</span></label>
+                  <div class="controls">
+                    <input type="password" id="password_confirm" placeholder="Password (Confirm)" class="form-control" formControlName="user_confirmPassword">
+                  </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+  
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" [disabled]="register.invalid"  style="width: 15%">
+              Register
+            </button>
+          </div>
+  
+    </form>
+  </div>

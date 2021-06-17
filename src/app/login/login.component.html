@@ -1,0 +1,27 @@
+<div class="container">
+    <form [formGroup]="loginform" (ngSubmit)="submitForm()">
+        <h3 style="text-align:center">
+            Login
+        </h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstname">Username: <span class="lblError">*</span></label>
+                <input type="text" [formControlName]="'username'"/>
+                <div *ngIf="loginform.get('username').hasError('required')">
+            Username is a required field
+        </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstname">Password: <span class="lblError">*</span></label>
+                <input type="password" [formControlName]="'password'"/>
+                <div *ngIf="loginform.get('password').hasError('required')"></div>
+                <button [disabled]="!loginform.valid" type="submit">Submit</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
