@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <form [formGroup]="loginform" (ngSubmit)="submitForm()">
         <h3 style="text-align:center">
             Login
@@ -24,4 +24,46 @@
         
     </form>
 </div>
+ -->
+ <div class="container">
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+        <h3 style="text-align:center">
+            Login
+        </h3>
+        
+        <div class="form-row">
+        <div class="form-group">
+              <!-- Username -->
+              <label for="username">Userame: <span class="lblError">*</span></label>
+              <div class="controls">
+                <input type="text" id="username" placeholder="Name" class="form-control" formControlName="username">
+                <p class="lblError" *ngIf="loginform.get('username').hasError('required')
+                            && !loginform.get('username').pristine">
+                    Username is Required
+                </p>
+              </div>
+        </div>
 
+            <div class="col">
+              <div class="form-group">
+                <div class="control-group">
+                  <!-- Password -->
+                  <label for="password">Password: <span class="lblError">*</span></label>
+                  <div class="controls">
+                  <input type="password" id="password" placeholder="Password" class="form-control" formControlName="password">
+                  <p class="lblError" *ngIf="loginform.get('password').hasError('required') && !loginform.get('password').pristine">
+                      Password is Required
+                  </p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" [disabled]="register.invalid"  style="width: 15%">
+            Login
+          </button>
+        </div>
+    </form>
+  </div>
