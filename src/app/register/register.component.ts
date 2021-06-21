@@ -11,7 +11,8 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   register: FormGroup;
-
+  hide = true;
+  
   ngOnInit() {
     this.register = new FormGroup({
       first_name: new FormControl(null,  Validators.required),

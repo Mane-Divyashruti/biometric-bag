@@ -1,3 +1,35 @@
+<!-- <mat-toolbar class="top-menu">
+    <mat-toolbar-row>
+        <button type="button" aria-lable="Toggle sidenav" mat-icon-button (click)="toggleNav(sidenav)">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="fill-remaining-space"></span>
+        <button mat-icon-button>
+            <mat-icon class="vap-icon" aria-hidden="false" aria-label="Settings icon">settings</mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon class="vap-icon" aria-hidden="false" aria-label="home icon">home</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
 
+<mat-sidenav-container style="width:200px;float: left;
+width: 100px;
+height: 20px;
+margin-right: 0px;
+">
+    <mat-sidenav #sidenav mode="side" opened class="vertical-menu">
+        <mat-nav-list style="width:200px">
+            <a mat-list-item>
+                <mat-icon>camera</mat-icon>&nbsp;<label>Live stream</label>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+     <mat-sidenav-content>
+        <p style="height:85vh" >
+             <router-outlet></router-outlet> 
+        </p>
+    </mat-sidenav-content> 
+</mat-sidenav-container> -->
 
 <router-outlet></router-outlet>

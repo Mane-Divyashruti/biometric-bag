@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'biometric-security-bags';
+
+  toggleNav(nav: any) {
+    if (nav.opened) {
+      nav.close()
+    } else {
+      nav.open();
+    }
+  }
 }

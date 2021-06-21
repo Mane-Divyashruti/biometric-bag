@@ -1,16 +1,34 @@
-<div class="container">
-    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+<mat-toolbar>
+  <span>
+    <a routerLink="/home">
+      <span><b>Biometric Bags</b></span>
+    </a>
+  </span>
+  <span>
+    <a class="active-link" routerLinkActive="active-link" routerLink="/login">
+      <span>Login</span>
+    </a>
+    <a class="active-link" routerLinkActive="active-link" routerLink="/register">
+      <span>Signup</span>
+    </a>
+  </span>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <img src="../../assets/SignUp.png" width="200px" height="200px" alt="" />
+  <div class="container">
+     <form [formGroup]="register" (ngSubmit)="onSubmit()">
   
-          <h3 style="text-align:center">
+          <!-- <h3 style="text-align:center">
               Register
-          </h3>
+          </h3> -->
           
           <div class="form-row">
           <div class="form-group">
-                <!-- Username -->
+               
                 <label for="firstname">First Name: <span class="lblError">*</span></label>
                 <div class="controls">
-                  <input type="text" id="username" placeholder="Name" class="form-control" formControlName="first_name">
+                  <input type="text" id="username" placeholder="" class="form-control" formControlName="first_name">
                   <p class="lblError" *ngIf="register.get('first_name').hasError('required')
                               && !register.get('first_name').pristine">
                       First Name is Required
@@ -19,10 +37,10 @@
           </div>
 
           <div class="form-group">
-            <!-- Last name -->
+            
             <label for="lastname">Last Name: <span class="lblError">*</span></label>
             <div class="controls">
-              <input type="text" id="lastname" placeholder="Last Name" class="form-control" formControlName="last_name">
+              <input type="text" id="lastname" placeholder="" class="form-control" formControlName="last_name">
               <p class="lblError" *ngIf="register.get('last_name').hasError('required')
                           && !register.get('last_name').pristine">
                   Last Name is Required
@@ -34,10 +52,10 @@
           
             <div class="col">
               <div class="form-group">
-                <!-- Mobile Number -->
+                
                 <label for="phone">Mobile No. <span class="lblError">*</span></label>
                 <div class="controls">
-                  <input type="number" id="phone" placeholder="Phone" class="form-control" formControlName="user_phone">
+                  <input type="number" id="phone" placeholder="" class="form-control" formControlName="user_phone">
                   <p class="lblError" *ngIf="register.get('user_phone').hasError('required') && !register.get('user_phone').pristine">
                       Mobile no. is Required
                   </p>
@@ -47,10 +65,10 @@
           
 
           <div class="form-group">
-            <!-- Bag Id -->
+            
             <label for="bagid">Unique Bag ID: <span class="lblError">*</span></label>
             <div class="controls">
-              <input type="text" id="bagid" placeholder="Bag Id" class="form-control" formControlName="bag_id">
+              <input type="text" id="bagid" placeholder="" class="form-control" formControlName="bag_id">
               <p class="lblError" *ngIf="register.get('bag_id').hasError('required')
                           && !register.get('bag_id').pristine">
                   Bag ID is Required
@@ -62,10 +80,10 @@
               <div class="col">
                 <div class="form-group">
                   <div class="control-group">
-                    <!-- Password -->
+                    
                     <label for="password">Password: <span class="lblError">*</span></label>
                     <div class="controls">
-                    <input type="password" id="password" placeholder="Password" class="form-control" formControlName="user_password">
+                    <input type="password" id="password" placeholder="" class="form-control" formControlName="user_password">
                     <p class="lblError" *ngIf="register.get('password_group').get('user_password').hasError('required') && !register.get('password_group').get('user_password').pristine">
                         Password is Required
                     </p>
@@ -76,21 +94,68 @@
               <div class="col">
                 <div class="form-group">
                   <div class="control-group">
-                  <!-- Password (Confirm)-->
+                  
                   <label for="password_confirm">Confirm Password: <span class="lblError">*</span></label>
                   <div class="controls">
-                    <input type="password" id="password_confirm" placeholder="Password (Confirm)" class="form-control" formControlName="user_confirmPassword">
+                    <input type="password" id="password_confirm" placeholder="" class="form-control" formControlName="user_confirmPassword">
                   </div>
                   </div>
                 </div>
               </div>
         </div>
-  
+        
           <div class="form-group">
-            <button class="btn btn-primary" type="submit" [disabled]="register.invalid"  style="width: 15%">
+            <button class="btn button" type="submit" [disabled]="register.invalid"  style="width: 25%">
               Register
             </button>
+            <span class="loginlink">Already have an account?&nbsp;<a class="color" routerLink="/login">Login</a></span>
           </div>
   
     </form>
-  </div>
+  </div> 
+
+  <!-- <div class="border">
+    <h2>Sign Up!</h2>
+    <form [formGroup]="register" (ngSubmit)="signup()" novalidate>
+      <mat-form-field [style.width.px]=500>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Ex. Jon" formControlName="First_name" />
+      </mat-form-field>
+      <br>
+      <mat-form-field [style.width.px]=500>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. Jon" formControlName="Email" />
+      </mat-form-field>
+      <br>
+      <mat-form-field [style.width.px]=500>
+        <mat-label>Mobile no</mat-label>
+        <input matInput placeholder="" formControlName="Mobile" />
+      </mat-form-field>
+      <br>
+      <mat-form-field [style.width.px]=500>
+        <mat-label>Alternate Mobile no</mat-label>
+        <input matInput placeholder="" formControlName="Alternatemobile" />
+      </mat-form-field>
+      <br>
+      <mat-form-field [style.width.px]=500>
+        <mat-label>Unique Bag ID</mat-label>
+        <input matInput placeholder="Ex. Jon" formControlName="bagid" />
+      </mat-form-field>
+      <br>
+      <mat-form-field [style.width.px]=500>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <input matInput type="password" placeholder="Ex. Jon" formControlName="password" />
+      </mat-form-field>
+      <br>
+      <button id="submit" [disabled]="!signupForm.valid" mat-raised-button type="submit">
+        <span>Sign up</span>
+      </button>
+    </form>
+  </div> -->
+</div>
+
